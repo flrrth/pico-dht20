@@ -93,7 +93,7 @@ class DHT20:
             retry -= 1
             
         buffer = data[0]
-        s_rh = buffer[1] << 12 | buffer[2] << 8 | buffer[3] >> 4
+        s_rh = buffer[1] << 12 | buffer[2] << 4 | buffer[3] >> 4
         s_t = (buffer[3] << 16 | buffer[4] << 8 | buffer[5]) & 0xfffff
         rh = (s_rh / 2 ** 20) * 100
         t = ((s_t / 2 ** 20) * 200) - 50
